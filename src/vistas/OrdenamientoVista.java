@@ -30,7 +30,7 @@ public class OrdenamientoVista extends JFrame {
 
     private JTable tblDocumentos;
 
-    private String[] encabezados = new String[] { "#", "Primer Apellido", "Segundo Apellido", "Nombres", "Documento" };
+    private String[] encabezados = new String[]{"#", "Primer Apellido", "Segundo Apellido", "Nombres", "Documento"};
 
     public OrdenamientoVista() {
 
@@ -47,7 +47,7 @@ public class OrdenamientoVista extends JFrame {
         txtBuscar = new JTextField();
 
         tblDocumentos = new JTable();
-        JScrollPane spDocumentos=new JScrollPane(tblDocumentos);
+        JScrollPane spDocumentos = new JScrollPane(tblDocumentos);
 
         setSize(600, 400);
         setTitle("Ordenamiento Documentos");
@@ -71,7 +71,7 @@ public class OrdenamientoVista extends JFrame {
 
 
         cmbCriterio.setModel(new DefaultComboBoxModel(
-                new String[] { "Nombre Completo, Tipo de Documento", "Tipo de Documento, Nombre Completo" }));
+                new String[]{"Nombre Completo, Tipo de Documento", "Tipo de Documento, Nombre Completo"}));
         tbOrdenamiento.add(cmbCriterio);
         tbOrdenamiento.add(txtTiempo);
 
@@ -105,12 +105,20 @@ public class OrdenamientoVista extends JFrame {
         btnOrdenarInsercion.addActionListener(evento);
     }
 
+    public void setOrdenarMezcla(ActionListener evento) {
+        btnOrdenarMezcla.addActionListener(evento);
+    }
+
     public void setBuscar(ActionListener evento) {
         btnBuscar.addActionListener(evento);
     }
 
+    public void setTiempo(String tiempo) {
+        txtTiempo.setText(tiempo);
+    }
+
     // metodos publicos
-    public void mostrarDatos(String[] encabezados, String[][] datos){
+    public void mostrarDatos(String[] encabezados, String[][] datos) {
         var dtm = new DefaultTableModel(datos, encabezados);
         tblDocumentos.setModel(dtm);
     }

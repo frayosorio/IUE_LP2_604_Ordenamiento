@@ -44,4 +44,8 @@ public class Documento {
     public void setDocumento(String documento) {
         this.documento = documento;
     }
+
+    public String getNombreCompleto() {
+        return this.apellido1 + " " + this.apellido2 + " " + this.nombre;
+    }
 }
